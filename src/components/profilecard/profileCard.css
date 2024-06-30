@@ -1,0 +1,39 @@
+.profile-card-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .profile-card {
+    width: 100%;
+    max-width: 350px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding-top: 20px;
+  }
+  
+  .profile-pic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .profile-pic {
+    width: 100px; /* Adjust the width of the profile picture */
+    height: 100px; /* Adjust the height of the profile picture */
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .parameter-item {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+  }
+  
+  .parameter-item:hover {
+    background-color: #f0f0f0;
+  }
+  
