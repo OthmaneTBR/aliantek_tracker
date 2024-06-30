@@ -1,29 +1,29 @@
 import React from 'react';
-
-const MesInformations = () => <div>Content of Mes informations</div>;
-const NouveauxProjets = () => <div>Content of Nouveaux projets</div>;
-const MesProjets = () => <div>Content of Mes projets</div>;
-const MesTaches = () => <div>Content of Mes tâches</div>;
+import ProfileContainer from '../MesInformations/ProfileContainer';
+// Import other components like NewProjects, Projects, Tasks if they exist
 
 const MainContent = ({ selected }) => {
-  let content;
-  switch (selected) {
-    case 'Mes informations':
-      content = <MesInformations />;
-      break;
-    case 'Nouveaux projets':
-      content = <NouveauxProjets />;
-      break;
-    case 'Mes projets':
-      content = <MesProjets />;
-      break;
-    case 'Mes tâches':
-      content = <MesTaches />;
-      break;
-    default:
-      content = <NouveauxProjets />;
-  }
-  return <div className="main-content">{content}</div>;
+
+  const renderContent = () => {
+    switch (selected) {
+      case 'Mes informations':
+        return <ProfileContainer />;
+      case 'Nouveaux projets':
+        return <div>Nouveaux projets content</div>;
+      case 'Mes projets':
+        return <div>Mes projets content</div>;
+      case 'Mes tâches':
+        return <div>Mes tâches content</div>;
+      default:
+        return <ProfileContainer />;
+    }
+  };
+
+  return (
+    <div className="main-content p-3 w-75">
+      {renderContent()}
+    </div>
+  );
 };
 
 export default MainContent;

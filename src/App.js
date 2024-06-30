@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Headbar from './components/headbar/headbar';
 import ProfileCard from './components/profilecard/profileCard';
 import MainContent from './components/main-content/maincontent';
 
 function App() {
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState('Mes informations');
 
   const handleSelect = (item) => {
     setSelected(item);
@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <Headbar />
-      <div className="app-container">
+      <div className="app-container d-flex">
         <ProfileCard className="profile-card-container" onSelect={handleSelect} />
         <MainContent className="main-content" selected={selected} />
       </div>
