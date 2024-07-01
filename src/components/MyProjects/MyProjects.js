@@ -47,10 +47,10 @@ const MyProjects = () => {
               <div>
                 <h5>{project.title}</h5>
                 <p>Client: {project.client}</p>
-                <p>Number of Tasks: {project.tasksCount}</p>
+                <p>Nombre de taches: {project.tasksCount}</p>
               </div>
               <Button variant="primary" onClick={() => handleShowDetails(project)}>
-                View Details
+                Afficher les détails
               </Button>
             </div>
           </ListGroup.Item>
@@ -59,10 +59,15 @@ const MyProjects = () => {
 
       <Offcanvas show={showDetails} onHide={handleCloseDetails} placement="end">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Project Details</Offcanvas.Title>
+          <Offcanvas.Title>Détails de projet</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          {selectedProject && <ProjectDetails project={selectedProject} />}
+          {selectedProject && (
+            <ProjectDetails
+              project={selectedProject}
+              onReturnToProjects={handleCloseDetails}
+            />
+          )}
         </Offcanvas.Body>
       </Offcanvas>
     </div>

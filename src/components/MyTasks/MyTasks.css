@@ -1,9 +1,10 @@
-.new-projects-container {
+.my-tasks-container {
     padding: 20px;
   }
   
-  .project-item {
+  .task-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+  
