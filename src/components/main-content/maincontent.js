@@ -1,5 +1,9 @@
 import React from 'react';
 import ProfileContainer from '../MesInformations/ProfileContainer';
+import NewProjects from '../NewProjects/NewProjects';
+import MyProjects from '../MyProjects/MyProjects';
+
+
 // Import other components like NewProjects, Projects, Tasks if they exist
 
 const MainContent = ({ selected }) => {
@@ -9,9 +13,9 @@ const MainContent = ({ selected }) => {
       case 'Mes informations':
         return <ProfileContainer />;
       case 'Nouveaux projets':
-        return <div>Nouveaux projets content</div>;
+        return <NewProjects />;
       case 'Mes projets':
-        return <div>Mes projets content</div>;
+        return <MyProjects />;
       case 'Mes tâches':
         return <div>Mes tâches content</div>;
       default:

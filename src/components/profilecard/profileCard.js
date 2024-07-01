@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 import './profileCard.css';
-import profilePic from './profile-pic.jpeg';
+import profilePic from '../../assets/profile-pic.jpeg';
 
 const ProfileCard = ({onSelect}) => {
   return (

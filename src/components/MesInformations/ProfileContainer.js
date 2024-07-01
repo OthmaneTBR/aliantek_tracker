@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ProfileDetails from './ProfileDetails';
 
+
 const ProfileContainer = () => {
   const [user, setUser] = useState({
-    profilePicture: './profilecard/profile-pic.jpeg', 
+    profilePicture: '../../assets/profile-pic.jpeg', 
     firstName: 'Othmane',
     lastName: 'TIBARI',
     email: 'othmane@example.com',
