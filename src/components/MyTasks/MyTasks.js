@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ListGroup, Button, Offcanvas } from 'react-bootstrap';
-import TaskDetails from './TaskDetails'; // Component to show task details
+import TaskDetails from './TaskDetails';
 
 const MyTasks = () => {
   const [tasks, setTasks] = useState([

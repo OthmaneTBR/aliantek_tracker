@@ -1,5 +1,3 @@
-// src/components/MyProjects/MyProjects.js
-
 import React, { useState } from 'react';
 import { ListGroup, Button, Offcanvas } from 'react-bootstrap';
 import ProjectDetails from '../NewProjects/ProjectDetails';

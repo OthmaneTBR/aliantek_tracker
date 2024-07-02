@@ -5,8 +5,6 @@ import MyProjects from '../MyProjects/MyProjects';
 import MyTasks from '../MyTasks/MyTasks';
 
 
-// Import other components like NewProjects, Projects, Tasks if they exist
-
 const MainContent = ({ selected }) => {
 
   const renderContent = () => {

@@ -1,5 +1,3 @@
-// src/components/NewProjects/ProjectDetails.js
-
 import React, { useState } from 'react';
 import { ListGroup, Button, Form, InputGroup } from 'react-bootstrap';
 
