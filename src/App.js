@@ -5,6 +5,8 @@ import Headbar from './components/headbar/headbar';
 import ProfileCard from './components/profilecard/profileCard';
 import MainContent from './components/main-content/maincontent';
 import AuthPage from './components/AuthPage/AuthPage';
+import ProtectedRoute from './components/ProtectedRoute';
+
 
 function App() {
   const [selected, setSelected] = useState('Mes informations');
@@ -34,8 +36,22 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<AuthPage />} />
-        <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route
+          path="/employee-dashboard"
+          element={
+            <ProtectedRoute>
+              <EmployeeDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/" element={<AuthPage />} />
       </Routes>
     </Router>

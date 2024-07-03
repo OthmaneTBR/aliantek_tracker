@@ -1,5 +1,3 @@
-// src/components/AuthPage/AuthPage.js
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button, Card, Container } from 'react-bootstrap';
@@ -13,15 +11,17 @@ const AuthPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Dummy login logic for demonstration
+
     if (email === 'admin@gmail.com' && password === 'admin123') {
-      navigate('/admin-dashboard');
-    } else if (email === 'employee@gmail.com' && password === 'employee123') {
-      navigate('/employee-dashboard');
-    } else {
-      alert('Invalid email or password');
-    }
-  };
+        localStorage.setItem('token', 'admin-token');
+        navigate('/admin-dashboard');
+      } else if (email === 'employee@gmail.com' && password === 'employee123') {
+        localStorage.setItem('token', 'employee-token');
+        navigate('/employee-dashboard');
+      } else {
+        alert('email ou mot de pass incorrect');
+      }
+    };
 
   return (
     <Container className="d-flex justify-content-center align-items-center auth-container">
@@ -33,17 +33,17 @@ const AuthPage = () => {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
+                placeholder="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
 
             <Form.Group controlId="formPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Mot de passe</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Enter password"
+                placeholder="Mot de passe"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

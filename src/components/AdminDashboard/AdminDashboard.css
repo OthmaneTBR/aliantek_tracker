@@ -1,0 +1,118 @@
+.admin-dashboard-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+  
+  .admin-sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #dee2e6;
+  }
+  
+  .admin-sidebar .list-group-item {
+    cursor: pointer;
+    padding: 15px;
+    border: none;
+    border-radius: 0;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .admin-sidebar .list-group-item:hover,
+  .admin-sidebar .list-group-item.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .admin-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .modal-header {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .modal-footer .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .modal-footer .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .modal-title {
+    color: white;
+  }
+  
+  .admin-sidebar .list-group-item {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .admin-sidebar .list-group-item:hover,
+  .admin-sidebar .list-group-item.active {
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  
+  .admin-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .admin-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .modal-header {
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  
+  .modal-footer .btn-primary {
+    background-color: #343a40;
+    border-color: #343a40;
+  }
+  
+  .modal-footer .btn-primary:hover {
+    background-color: #23272b;
+    border-color: #23272b;
+  }
+  
+  button.btn-primary {
+    background-color: #343a40;
+    border-color: #343a40;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #23272b;
+    border-color: #23272b;
+  }
+  

@@ -1,10 +1,19 @@
+import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './Headbar.css';
-import logo from "./logo.png";
+import logo from './logo.png';
 
 const Headbar = () => {
-    return (
-        <Navbar bg="light" expand="lg" className="header">
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
+  return (
+    <Navbar bg="light" expand="lg" className="header">
       <Navbar.Brand href="#home">
         <img
           src={logo}
@@ -22,10 +31,13 @@ const Headbar = () => {
           <Nav.Link href="#profile">
             <i className="fas fa-user-circle"></i>
           </Nav.Link>
+          <Nav.Link onClick={handleLogout}>
+            <i className="fas fa-sign-out-alt"></i> Logout
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-    )
+  );
 };
 
 export default Headbar;
