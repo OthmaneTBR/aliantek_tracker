@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Button, Modal, Form } from 'react-bootstrap';
-import './ManageProjects.css';
+import './AdminDashboard.css';
 
 const ManageProjects = () => {
   const [projects, setProjects] = useState([]);

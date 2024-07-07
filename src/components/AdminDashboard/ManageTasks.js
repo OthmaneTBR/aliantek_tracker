@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Button, Modal, Form } from 'react-bootstrap';
-import './ManageTasks.css';
+import './AdminDashboard.css';
 
 const ManageTasks = () => {
   const [tasks, setTasks] = useState([]);

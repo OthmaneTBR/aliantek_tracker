@@ -6,6 +6,7 @@ import ProfileCard from './components/profilecard/profileCard';
 import MainContent from './components/main-content/maincontent';
 import AuthPage from './components/AuthPage/AuthPage';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 
 
 function App() {
@@ -22,13 +23,6 @@ function App() {
         <ProfileCard className="profile-card-container" onSelect={handleSelect} />
         <MainContent className="main-content" selected={selected} />
       </div>
-    </div>
-  );
-
-  const AdminDashboard = () => (
-    <div>
-      <h1>Admin Dashboard</h1>
-      {/* Add admin dashboard components here */}
     </div>
   );
 

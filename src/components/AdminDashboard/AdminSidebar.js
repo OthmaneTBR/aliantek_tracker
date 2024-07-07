@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import './AdminSidebar.css';
+import './AdminDashboard.css';
 
 const AdminSidebar = ({ onSelect }) => {
   return (
