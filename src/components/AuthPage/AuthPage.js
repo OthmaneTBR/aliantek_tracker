@@ -6,22 +6,37 @@ import './AuthPage.css';
 const AuthPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-
-    if (email === 'admin@gmail.com' && password === 'admin123') {
-        localStorage.setItem('token', 'admin-token');
-        navigate('/admin-dashboard');
-      } else if (email === 'employee@gmail.com' && password === 'employee123') {
-        localStorage.setItem('token', 'employee-token');
-        navigate('/employee-dashboard');
+    console.log('Attempting to log in...');
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      console.log('Login response:', response);
+      const data = await response.json();
+      console.log('Login data:', data);
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
+        console.log('Login successful, redirecting...');
+        if (data.role === 'admin') {
+          navigate('/admin-dashboard');
+        } else {
+          navigate('/employee-dashboard');
+        }
       } else {
-        alert('email ou mot de pass incorrect');
+        setError(data.message);
       }
-    };
+    } catch (error) {
+      console.error('Login error:', error);
+      setError('An error occurred. Please try again.');
+    }
+  };
 
   return (
     <Container className="d-flex justify-content-center align-items-center auth-container">
