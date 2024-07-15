@@ -1,0 +1,9 @@
+.new-projects-container {
+    padding: 20px;
+  }
+  
+  .project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }

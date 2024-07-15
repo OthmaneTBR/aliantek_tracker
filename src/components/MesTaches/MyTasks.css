@@ -1,0 +1,10 @@
+.my-tasks-container {
+    padding: 20px;
+  }
+  
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  

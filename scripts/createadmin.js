@@ -10,16 +10,16 @@ if (!process.env.MONGO_URI) {
 
 async function createAdmin() {
   try {
-    const existingAdmin = await User.findOne({ email: 'admin@gmail.com' });
+    const existingAdmin = await User.findOne({ email: 'othmane@gmail.com' });
     if (existingAdmin) {
       console.log('Admin user already exists');
       return;
     }
 
-    const hashedPassword = await bcrypt.hash('admin123', 10);
+    const hashedPassword = await bcrypt.hash('othmane123', 10);
     const adminUser = new User({
-      name: 'Admin',
-      email: 'admin@gmail.com',
+      name: 'Othmane',
+      email: 'othmane@gmail.com',
       password: hashedPassword,
       role: 'admin'
     });
