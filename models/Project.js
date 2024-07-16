@@ -6,7 +6,8 @@ const projectSchema = new mongoose.Schema({
   description: { type: String },
   startDate: { type: Date, default: Date.now },
   endDate: { type: Date },
-  status: { type: String, enum: ['Not Started', 'In Progress', 'Completed'], default: 'Not Started' }
+  status: { type: String, enum: ['Not Started', 'In Progress', 'Completed'], default: 'Not Started' },
+  tasks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Task' }]
 });
 
 module.exports = mongoose.model('Project', projectSchema);

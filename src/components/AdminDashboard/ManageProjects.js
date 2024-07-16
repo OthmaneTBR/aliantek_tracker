@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Modal, Form } from 'react-bootstrap';
+import { Table, Button, Modal, Form, ListGroup } from 'react-bootstrap';
 import axios from 'axios';
 import './AdminDashboard.css';
 
@@ -8,6 +8,7 @@ const ManageProjects = () => {
   const [show, setShow] = useState(false);
   const [newProject, setNewProject] = useState({ title: '', client: '', description: '', startDate: '', endDate: '', status: 'Not Started' });
   const [isUpdating, setIsUpdating] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     fetchProjects();
@@ -80,12 +81,25 @@ const ManageProjects = () => {
     }
   };
 
+  const handleViewTasks = async (id) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`/api/projects/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setSelectedProject(response.data);
+      setShow(true);
+    } catch (error) {
+      console.error('Error fetching project details:', error);
+    }
+  };
+
   return (
     <div>
       <h2>Manage Projects</h2>
       <Button variant="primary" onClick={handleShow}>Add Project</Button>
-      <Table striped bordered hover>
-      <thead>
+      <Table striped bordered hover responsive>
+        <thead>
           <tr>
             <th>Title</th>
             <th>Client</th>
@@ -106,6 +120,7 @@ const ManageProjects = () => {
               <td>{project.endDate ? new Date(project.endDate).toLocaleDateString() : 'Not set'}</td>
               <td>{project.status}</td>
               <td>
+                <Button variant="info" onClick={() => handleViewTasks(project._id)}>View Tasks</Button>
                 <Button variant="warning" onClick={() => handleUpdate(project._id)}>Update</Button>
                 <Button variant="danger" onClick={() => handleDelete(project._id)}>Delete</Button>
               </td>
@@ -116,9 +131,20 @@ const ManageProjects = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{isUpdating ? 'Update Project' : 'Add Project'}</Modal.Title>
+          <Modal.Title>{selectedProject ? `Tasks for ${selectedProject.title}` : (isUpdating ? 'Update Project' : 'Add Project')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {selectedProject ? (
+            <ListGroup>
+              {selectedProject.tasks.map(task => (
+                <ListGroup.Item key={task._id}>
+                  <h5>{task.title}</h5>
+                  <p>{task.description}</p>
+                  <small>Status: {task.status}</small>
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          ) : (
           <Form>
             <Form.Group controlId="formTitle">
               <Form.Label>Title</Form.Label>
@@ -152,6 +178,7 @@ const ManageProjects = () => {
               {isUpdating ? 'Update' : 'Save'}
             </Button>
           </Form>
+          )}
         </Modal.Body>
       </Modal>
     </div>
