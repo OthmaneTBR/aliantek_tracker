@@ -1,5 +1,6 @@
 const Task = require('../models/Task');
 const Project = require('../models/Project');
+const User = require('../models/User');
 
 exports.createTask = async (req, res) => {
   try {
@@ -16,7 +17,7 @@ exports.createTask = async (req, res) => {
 
 exports.getAllTasks = async (req, res) => {
   try {
-    const tasks = await Task.find().populate('project', 'title');
+    const tasks = await Task.find().populate('project', 'title').populate('assignedTo', 'name email');
     res.json(tasks);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -25,7 +26,7 @@ exports.getAllTasks = async (req, res) => {
 
 exports.getTaskById = async (req, res) => {
   try {
-    const task = await Task.findById(req.params.id).populate('project', 'title');
+    const task = await Task.findById(req.params.id).populate('project', 'title').populate('assignedTo', 'name email');
     if (!task) {
       return res.status(404).json({ message: 'Task not found' });
     }
