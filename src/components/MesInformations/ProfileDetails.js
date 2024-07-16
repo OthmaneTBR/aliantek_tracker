@@ -6,16 +6,13 @@ const ProfileDetails = ({ user }) => {
     <Card>
       <Card.Body>
         <Row>
-          <Col md={4}>
-            <Image src={user.profilePicture} roundedCircle width="100" />
-          </Col>
           <Col md={8}>
             <h3>{user.firstName} {user.lastName}</h3>
             <p>Email: {user.email}</p>
             <p>Role: {user.role}</p>
-            <p>Date of Joining: {new Date(user.joinDate).toLocaleDateString()}</p>
-            <p>Number of Projects: {user.projectsCount}</p>
-            <p>Number of Tasks Completed: {user.tasksCompleted}</p>
+            <p>date d'adhésion: {new Date(user.joinDate).toLocaleDateString()}</p>
+            <p>Nombre de Projets: {user.projectsCount}</p>
+            <p>Nombre de Completés: {user.tasksCompleted}</p>
           </Col>
         </Row>
       </Card.Body>

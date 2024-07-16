@@ -96,16 +96,16 @@ const ManageProjects = () => {
 
   return (
     <div>
-      <h2>Manage Projects</h2>
-      <Button variant="primary" onClick={handleShow}>Add Project</Button>
+      <h2>Gérer le projets</h2>
+      <Button variant="primary" onClick={handleShow}>Ajouter projet</Button>
       <Table striped bordered hover responsive>
         <thead>
           <tr>
-            <th>Title</th>
+            <th>Titre</th>
             <th>Client</th>
-            <th>Description</th>
-            <th>Start Date</th>
-            <th>End Date</th>
+            <th>Déscription</th>
+            <th>Date de début</th>
+            <th>Date fin</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -120,9 +120,9 @@ const ManageProjects = () => {
               <td>{project.endDate ? new Date(project.endDate).toLocaleDateString() : 'Not set'}</td>
               <td>{project.status}</td>
               <td>
-                <Button variant="info" onClick={() => handleViewTasks(project._id)}>View Tasks</Button>
-                <Button variant="warning" onClick={() => handleUpdate(project._id)}>Update</Button>
-                <Button variant="danger" onClick={() => handleDelete(project._id)}>Delete</Button>
+                <Button variant="info" onClick={() => handleViewTasks(project._id)}>Afficher les taches</Button>
+                <Button variant="warning" onClick={() => handleUpdate(project._id)}>Modifier</Button>
+                <Button variant="danger" onClick={() => handleDelete(project._id)}>Suprimer</Button>
               </td>
             </tr>
           ))}
@@ -147,7 +147,7 @@ const ManageProjects = () => {
           ) : (
           <Form>
             <Form.Group controlId="formTitle">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>Titre</Form.Label>
               <Form.Control type="text" placeholder="Enter title" value={newProject.title} onChange={(e) => setNewProject({ ...newProject, title: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formClient">
@@ -155,23 +155,23 @@ const ManageProjects = () => {
               <Form.Control type="text" placeholder="Enter client" value={newProject.client} onChange={(e) => setNewProject({ ...newProject, client: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formDescription">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Déscription</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Enter description" value={newProject.description} onChange={(e) => setNewProject({ ...newProject, description: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formStartDate">
-              <Form.Label>Start Date</Form.Label>
+              <Form.Label>Date de début</Form.Label>
               <Form.Control type="date" value={newProject.startDate} onChange={(e) => setNewProject({ ...newProject, startDate: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formEndDate">
-              <Form.Label>End Date</Form.Label>
+              <Form.Label>Date fin</Form.Label>
               <Form.Control type="date" value={newProject.endDate} onChange={(e) => setNewProject({ ...newProject, endDate: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formStatus">
               <Form.Label>Status</Form.Label>
               <Form.Control as="select" value={newProject.status} onChange={(e) => setNewProject({ ...newProject, status: e.target.value })}>
-                <option>Not Started</option>
-                <option>In Progress</option>
-                <option>Completed</option>
+                <option>Pas commencé</option>
+                <option>En cours</option>
+                <option>Completé</option>
               </Form.Control>
             </Form.Group>
             <Button variant="primary" onClick={isUpdating ? handleSaveUpdate : handleSave}>

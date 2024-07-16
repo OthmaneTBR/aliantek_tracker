@@ -61,7 +61,7 @@ const ManageTasks = () => {
 
   const handleShow = () => {
     setIsUpdating(false);
-    setNewTask({ title: '', description: '', project: '', assignedTo: '', status: 'To Do' });
+    setNewTask({ title: '', description: '', project: '', assignedTo: '', status: 'à faire' });
     setShow(true);
   };
 
@@ -116,15 +116,15 @@ const ManageTasks = () => {
 
   return (
     <div>
-      <h2>Manage Tasks</h2>
-      <Button variant="primary" onClick={handleShow}>Add Task</Button>
+      <h2>Gérer le taches</h2>
+      <Button variant="primary" onClick={handleShow}>Ajouter tache</Button>
       <Table striped bordered hover responsive>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Project</th>
-            <th>Assigned To</th>
+            <th>Titre</th>
+            <th>Déscription</th>
+            <th>Projet</th>
+            <th>Assigné à</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -138,8 +138,8 @@ const ManageTasks = () => {
               <td>{task.assignedTo ? `${task.assignedTo.name} (${task.assignedTo.email})` : 'Unassigned'}</td>
               <td>{task.status}</td>
               <td>
-                <Button variant="warning" onClick={() => handleUpdate(task._id)}>Update</Button>
-                <Button variant="danger" onClick={() => handleDelete(task._id)}>Delete</Button>
+                <Button variant="warning" onClick={() => handleUpdate(task._id)}>Modifier</Button>
+                <Button variant="danger" onClick={() => handleDelete(task._id)}>Suprimer</Button>
               </td>
             </tr>
           ))}
@@ -153,26 +153,26 @@ const ManageTasks = () => {
         <Modal.Body>
           <Form>
             <Form.Group controlId="formTitle">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>Titre</Form.Label>
               <Form.Control type="text" placeholder="Enter title" value={newTask.title} onChange={(e) => setNewTask({ ...newTask, title: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formDescription">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Déscription</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Enter description" value={newTask.description} onChange={(e) => setNewTask({ ...newTask, description: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formProject">
-              <Form.Label>Project</Form.Label>
+              <Form.Label>Projet</Form.Label>
               <Form.Control as="select" value={newTask.project} onChange={(e) => setNewTask({ ...newTask, project: e.target.value })}>
-                <option value="">Select a project</option>
+                <option value="">Selectionner un projet</option>
                 {projects.map((project) => (
                   <option key={project._id} value={project._id}>{project.title}</option>
                 ))}
               </Form.Control>
             </Form.Group>
             <Form.Group controlId="formAssignedTo">
-              <Form.Label>Assigned To</Form.Label>
+              <Form.Label>Assigné à</Form.Label>
               <Form.Control as="select" value={newTask.assignedTo} onChange={(e) => setNewTask({ ...newTask, assignedTo: e.target.value })}>
-                <option value="">Unassigned</option>
+                <option value="">Pas assigné</option>
                 {users.map((user) => (
                   <option key={user._id} value={user._id}>{user.name} ({user.email})</option>
                 ))}
@@ -181,9 +181,9 @@ const ManageTasks = () => {
             <Form.Group controlId="formStatus">
               <Form.Label>Status</Form.Label>
               <Form.Control as="select" value={newTask.status} onChange={(e) => setNewTask({ ...newTask, status: e.target.value })}>
-                <option>To Do</option>
-                <option>In Progress</option>
-                <option>Done</option>
+                <option>à faire</option>
+                <option>En cours</option>
+                <option>fini</option>
               </Form.Control>
             </Form.Group>
             <Button variant="primary" onClick={isUpdating ? handleSaveUpdate : handleSave}>

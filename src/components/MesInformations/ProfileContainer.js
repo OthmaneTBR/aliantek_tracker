@@ -4,14 +4,14 @@ import ProfileDetails from './ProfileDetails';
 
 const ProfileContainer = () => {
   const [user, setUser] = useState({
-    profilePicture: '../../assets/profile-pic.jpeg', 
+    profilePicture: '../../assets/profile-pic.png', 
     firstName: 'Othmane',
     lastName: 'TIBARI',
-    email: 'othmane@example.com',
-    role: 'Developer',
-    joinDate: '2020-01-01',
-    projectsCount: 10,
-    tasksCompleted: 50,
+    email: 'othmane@gmail.com',
+    role: 'employee',
+    joinDate: '2024-07-16',
+    projectsCount: 1,
+    tasksCompleted: 2,
   });
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 import './profileCard.css';
-import profilePic from '../../assets/profile-pic.jpeg';
+import profilePic from '../../assets/profile-pic.png';
 
 const ProfileCard = ({onSelect}) => {
   return (
@@ -12,7 +12,7 @@ const ProfileCard = ({onSelect}) => {
         </div>
         <Card.Body className="text-center">
             <Card.Title>Othmane TIBARI</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">@Full stack Web developer</Card.Subtitle>
+            <Card.Subtitle className="mb-2 text-muted">@employee</Card.Subtitle>
         </Card.Body>
         <Card.Header className="text-center"><strong>Paramètres</strong></Card.Header>
         <ListGroup variant="flush">

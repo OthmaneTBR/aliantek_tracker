@@ -5,7 +5,7 @@ const taskSchema = new mongoose.Schema({
   description: { type: String },
   project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project', required: true },
   assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  status: { type: String, enum: ['To Do', 'In Progress', 'Done'], default: 'To Do' }
+  status: { type: String, enum: ['à faire', 'En cours', 'fini'], default: 'To Do' }
 });
 
 module.exports = mongoose.model('Task', taskSchema);

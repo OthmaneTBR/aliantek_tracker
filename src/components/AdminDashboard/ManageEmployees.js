@@ -82,12 +82,12 @@ const ManageEmployees = () => {
 
   return (
     <div>
-      <h2>Manage Employees</h2>
-      <Button variant="primary" onClick={handleShow}>Add Employee</Button>
+      <h2>Gérer les employés</h2>
+      <Button variant="primary" onClick={handleShow}>Ajouter employé</Button>
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Nom</th>
             <th>Email</th>
             <th>Role</th>
             <th>Actions</th>
@@ -100,8 +100,8 @@ const ManageEmployees = () => {
               <td>{employee.email}</td>
               <td>{employee.role}</td>
               <td>
-                <Button variant="warning" onClick={() => handleUpdate(employee._id)}>Update</Button>
-                <Button variant="danger" onClick={() => handleDelete(employee._id)}>Delete</Button>
+                <Button variant="warning" onClick={() => handleUpdate(employee._id)}>Modifier</Button>
+                <Button variant="danger" onClick={() => handleDelete(employee._id)}>Suprimer</Button>
               </td>
             </tr>
           ))}
@@ -115,11 +115,11 @@ const ManageEmployees = () => {
         <Modal.Body>
           <Form>
             <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Nom</Form.Label>
               <Form.Control type="text" placeholder="Enter name" value={newEmployee.name} onChange={(e) => setNewEmployee({ ...newEmployee, name: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Adresse email</Form.Label>
               <Form.Control type="email" placeholder="Enter email" value={newEmployee.email} onChange={(e) => setNewEmployee({ ...newEmployee, email: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formRole">
@@ -127,7 +127,7 @@ const ManageEmployees = () => {
               <Form.Control type="text" placeholder="Enter role" value={newEmployee.role} onChange={(e) => setNewEmployee({ ...newEmployee, role: e.target.value })} />
             </Form.Group>
             <Form.Group controlId="formPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Mot de passe</Form.Label>
               <Form.Control type="password" placeholder="Password" value={newEmployee.password} onChange={(e) => setNewEmployee({ ...newEmployee, password: e.target.value })} />
             </Form.Group>
             <Button variant="primary" onClick={isUpdating ? handleSaveUpdate : handleSave}>

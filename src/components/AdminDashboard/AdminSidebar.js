@@ -6,9 +6,9 @@ const AdminSidebar = ({ onSelect }) => {
   return (
     <div className="admin-sidebar">
       <ListGroup>
-        <ListGroup.Item onClick={() => onSelect('Manage Employees')}>Manage Employees</ListGroup.Item>
-        <ListGroup.Item onClick={() => onSelect('Manage Projects')}>Manage Projects</ListGroup.Item>
-        <ListGroup.Item onClick={() => onSelect('Manage Tasks')}>Manage Tasks</ListGroup.Item>
+        <ListGroup.Item onClick={() => onSelect('Manage Employees')}>Gérer les employés</ListGroup.Item>
+        <ListGroup.Item onClick={() => onSelect('Manage Projects')}>Gérer le projets</ListGroup.Item>
+        <ListGroup.Item onClick={() => onSelect('Manage Tasks')}>Gérer les taches</ListGroup.Item>
       </ListGroup>
     </div>
   );
